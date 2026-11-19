@@ -29,7 +29,7 @@ RULES FOR ACCURACY AND SAFETY
 STEP 1: DISCOVER (do this silently, then give me a short summary)
 Work out: what the product is and who uses it; language, framework and build tooling; the folders and modules; entry points; every screen, page, command or API route; data models; how it talks to other systems; where data is stored and how it is protected; configuration and secrets handling; how it is tested; what is planned (trackers, TODOs); what is half-built, unused or contradictory; and the version and latest commit. Record the version and the short commit identifier, because the documentation is a snapshot of that moment.
 
-STEP 2: BUILD THESE ELEVEN ARTIFACTS ON THE MIRO BOARD
+STEP 2: BUILD THESE ELEVEN ARTIFACTS ON THE MIRO BOARD, INSIDE THE "REPO DOCUMENTATION" FRAME
 
 1. ARCHITECTURE DIAGRAM (Mermaid, left-to-right flowchart with nested groups)
 Show all the code, not a sketch: one group per layer (entry and state, screens or pages, shared components and theme, data layer, legacy or unused code, and the external server if relevant). Each box is a file or class and lists its functions and methods with their parameter names. Include every endpoint, every storage location (databases, files, preferences, secure key stores), every external system, and who calls whom, with short labels on the arrows. Show a "not in this repo" group for outside systems. Show unused code in gray with dotted arrows. Colors: blue for user interface, green for state and routing, yellow for the data layer, orange for storage, purple for outside servers, gray for legacy. Add that color legend as text under the board title.
@@ -65,6 +65,7 @@ Columns: ID, Risk, Where in the repo, Impact, Likelihood (Low, Medium, High), Se
 The most important write or transaction, from the user's tap to the stored result and the screen refresh. Name the real functions as participants and messages. Show validation, the offline or failure guard, the call to the server, rejection branches, the success branch, and the refresh. Use alt, opt and par blocks, numbered steps, and one note for connection loss.
 
 STEP 3: BOARD LAYOUT AND STYLE
+- Put everything you build inside one frame named "Repo Documentation". If the board already has a frame with that name, use it and place every item inside it. If not, create it first, large enough for all eleven artifacts, and enlarge it if anything would fall outside. Nothing may sit outside the frame except an existing template or instruction items you were not asked to touch.
 - Put a large title at the top, a subtitle with a one-line description, the version, the short commit and the repo address, then a contents line where every item is a clickable link to its section (use the board's "move to item" links). Number every section heading.
 - Order: 1 Architecture, 2 User flow, 3 intent.md, 4 spec.md, 5 plan.md, 6 Prototype, then 7 to 11 to the right of the documents, stacked top to bottom. Documents (intent, spec, plan) sit side by side, about 300 pixels apart.
 - Leave generous space between sections. Diagram sizes are not reported by the board, so keep large gaps and never let two items overlap. After every create step, check the reported sizes and move things if needed.

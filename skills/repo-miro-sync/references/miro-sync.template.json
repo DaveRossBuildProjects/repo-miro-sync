@@ -1,0 +1,20 @@
+{
+  "board": "https://miro.com/app/board/[BOARD_ID]/",
+  "repo": "DaveRossBuildProjects/[REPO]",
+  "branch": "main",
+  "lastSyncedCommit": "[SHORT_SHA]",
+  "lastSyncedAt": "[ISO_TIMESTAMP]",
+  "artifacts": [
+    { "id": "architecture", "owner": "repo", "source": "docs/diagrams/architecture.mmd", "widget": "[WIDGET_ID]", "hash": "[SHA256]" },
+    { "id": "userflow", "owner": "repo", "source": "docs/diagrams/userflow.mmd", "widget": "[WIDGET_ID]", "hash": "[SHA256]" },
+    { "id": "sequence", "owner": "repo", "source": "docs/diagrams/sequence.mmd", "widget": "[WIDGET_ID]", "hash": "[SHA256]" },
+    { "id": "endpoints", "owner": "repo", "source": "docs/endpoints.json", "widget": "[WIDGET_ID]", "hash": "[SHA256]" },
+    { "id": "prototype", "owner": "repo", "source": "docs/prototype/", "widget": "[WIDGET_ID]", "hash": "[SHA256]" },
+    { "id": "intent", "owner": "repo-pr", "source": "docs/intent.md", "widget": "[WIDGET_ID]", "hash": "[SHA256]" },
+    { "id": "spec", "owner": "repo-pr", "source": "docs/spec.md", "widget": "[WIDGET_ID]", "hash": "[SHA256]" },
+    { "id": "plan", "owner": "repo-pr", "source": "docs/plan.md", "widget": "[WIDGET_ID]", "hash": "[SHA256]" },
+    { "id": "decisions", "owner": "miro", "source": "docs/decisions.json", "widget": "[WIDGET_ID]", "hash": "[SHA256]" },
+    { "id": "risks", "owner": "miro", "source": "docs/risks.json", "widget": "[WIDGET_ID]", "hash": "[SHA256]" },
+    { "id": "roadmap", "owner": "miro", "source": "docs/roadmap.json", "widget": "[WIDGET_ID]", "hash": "[SHA256]" }
+  ]
+}

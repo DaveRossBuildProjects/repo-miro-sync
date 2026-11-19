@@ -1,0 +1,10 @@
+{
+  "name": "repo-miro-sync",
+  "version": "0.1.0",
+  "description": "Document any GitHub repo on a Miro board with one prompt, then keep the board and the repo in sync. Builds architecture, user flow and sequence diagrams, intent, spec and plan documents, a prototype, a decision log, roadmap, endpoint matrix and risk register.",
+  "author": { "name": "Dave Ross" },
+  "homepage": "https://github.com/DaveRossBuildProjects/repo-miro-sync",
+  "repository": "https://github.com/DaveRossBuildProjects/repo-miro-sync",
+  "license": "MIT",
+  "keywords": ["miro", "documentation", "github", "architecture", "sync", "spec", "diagrams"]
+}

@@ -1,6 +1,6 @@
 # repo-miro-sync
 
-A Claude plugin that documents a GitHub repository on a Miro board and keeps the two in sync. It is written for non-technical owners of a codebase, such as product managers, evangelists, analysts and founders.
+A Claude plugin that documents a GitHub repository on a Miro board and keeps the two in sync. It is written for non-technical owners of a codebase, such as product managers, delivery managers, analysts and founders.
 
 ## What it does
 

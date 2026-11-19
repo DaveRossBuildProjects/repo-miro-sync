@@ -31,46 +31,46 @@ Work out: what the product is and who uses it; language, framework and build too
 
 STEP 2: BUILD THESE ELEVEN ARTIFACTS ON THE MIRO BOARD, INSIDE THE "REPO DOCUMENTATION" FRAME
 
-1. ARCHITECTURE DIAGRAM (Mermaid, left-to-right flowchart with nested groups)
-Show all the code, not a sketch: one group per layer (entry and state, screens or pages, shared components and theme, data layer, legacy or unused code, and the external server if relevant). Each box is a file or class and lists its functions and methods with their parameter names. Include every endpoint, every storage location (databases, files, preferences, secure key stores), every external system, and who calls whom, with short labels on the arrows. Show a "not in this repo" group for outside systems. Show unused code in gray with dotted arrows. Colors: blue for user interface, green for state and routing, yellow for the data layer, orange for storage, purple for outside servers, gray for legacy. Add that color legend as text under the board title.
-
-2. USER FLOW DIAGRAM (Mermaid, top-to-bottom flowchart)
-From launch to the most important completed task. Include every decision (as a diamond), every failure and offline or error path, and the exact messages the user sees. Group background work (for example loading data) in its own box. Show how Back or exit behaves. Colors: green for start, end and success, cyan for decisions, yellow for normal steps, orange for warnings and failures.
-
-3. intent.md (plain-language, about one page)
+1. intent.md (plain-language, about one page)
 Sections: What it is; The problem; Who it is for; What good looks like; Principles; In scope today; Out of scope for now; Planned next; Risks and open questions.
 
-4. spec.md (detailed requirements an AI coding assistant could rebuild the product from)
+2. spec.md (detailed requirements an AI coding assistant could rebuild the product from)
 Number the sections: platform and build (exact versions, libraries, how secrets are injected); system context; data model (every field and the naming rules); the interface contract (every route or call, request, response, error codes, limits); network and offline behavior; navigation and state; every screen and its exact behavior and wording; every form and its validation rules; theme (exact colors and sizes); security requirements; non-functional requirements; tests (what exists, what it really covers, how to run it); planned requirements; a "Known issues found while reading the code" section; and a final acceptance checklist. Use headings and bullet lists only, no tables and no code fences, so it pastes cleanly into a board document.
 
-5. plan.md (how an AI coding assistant would build it)
+3. plan.md (how an AI coding assistant would build it)
 Sections: ground rules for every agent; a list of agents, each with what it owns, what it depends on and a "done when" test (include an orchestrator, a scaffold agent, a data and network agent, a design system agent, a screens agent, an app shell agent, an editing agent, a server agent if relevant, a test agent, a review and security agent, and a docs agent, adapted to this repo); build sequence showing what can run in parallel; file ownership so parallel agents never touch the same files; milestones; planned feature work; verification commands copied from the repo; and decisions needed from the owner.
 
-6. CLICKABLE PROTOTYPE of the current screens
-One prototype on the board with one screen per distinct screen, including dialogs, forms, empty states and error states. Use the product's real wording, real layout and real colors (read them from the code), the correct device size, and fake sample data only. Every screen must be reachable by links from the first screen and must have a way back. If the product has no screens (for example a command-line tool or API), say so and replace this with a diagram of its commands or routes.
+4. USER FLOW DIAGRAM (Mermaid, top-to-bottom flowchart)
+From launch to the most important completed task. Include every decision (as a diamond), every failure and offline or error path, and the exact messages the user sees. Group background work (for example loading data) in its own box. Show how Back or exit behaves. Colors: green for start, end and success, cyan for decisions, yellow for normal steps, orange for warnings and failures.
 
-7. DECISION LOG (table)
-Columns: ID, Decision, Options considered, Recommendation, Priority (Low, Medium, High), Status (Open, Decided, Deferred), Decision owner. One row for each choice that needs a human, taken from the risks and open questions. Everything starts as Open.
+5. ARCHITECTURE DIAGRAM (Mermaid, left-to-right flowchart with nested groups)
+Show all the code, not a sketch: one group per layer (entry and state, screens or pages, shared components and theme, data layer, legacy or unused code, and the external server if relevant). Each box is a file or class and lists its functions and methods with their parameter names. Include every endpoint, every storage location (databases, files, preferences, secure key stores), every external system, and who calls whom, with short labels on the arrows. Show a "not in this repo" group for outside systems. Show unused code in gray with dotted arrows. Colors: blue for user interface, green for state and routing, yellow for the data layer, orange for storage, purple for outside servers, gray for legacy. Add that color legend as text under the board title.
 
-8. ROADMAP (kanban)
-Lanes: Backlog, Next, In progress, Done. Columns: Title, Description, Status, Priority, Tags (source of the item: the repo's own tracker, Proposed by you, or Released). Done lane comes from the release history. Mark anything you add yourself as Proposed.
+6. SEQUENCE DIAGRAM (Mermaid)
+The most important write or transaction, from the user's tap to the stored result and the screen refresh. Name the real functions as participants and messages. Show validation, the offline or failure guard, the call to the server, rejection branches, the success branch, and the refresh. Use alt, opt and par blocks, numbered steps, and one note for connection loss.
 
-9. ENDPOINT MATRIX (table)
+7. ENDPOINT MATRIX (table)
 Columns: Path, Method (GET, POST, PATCH, PUT, DELETE), Client function, Triggered from (which screen or action), Server handler, Responses and fallback, Contract status (Confirmed by server code, Inferred from client code, Unconfirmed legacy). One row per route, including routes only used by dead code. If the project has no routes, build the equivalent matrix for its commands, events or public functions.
 
-10. RISK AND SECURITY REGISTER (table)
+8. CLICKABLE PROTOTYPE of the current screens
+One prototype on the board with one screen per distinct screen, including dialogs, forms, empty states and error states. Use the product's real wording, real layout and real colors (read them from the code), the correct device size, and fake sample data only. Every screen must be reachable by links from the first screen and must have a way back. If the product has no screens (for example a command-line tool or API), say so and replace this with a diagram of its commands or routes.
+
+9. RISK AND SECURITY REGISTER (table)
 Columns: ID, Risk, Where in the repo, Impact, Likelihood (Low, Medium, High), Severity (Low, Medium, High), Mitigation, Linked decision, Status (Open, In progress, Mitigated). Look at least for: secrets inside the app or repo; missing lock or timeout; unencrypted traffic; backups; real personal data in the repo; tests that do not test the real code; dead code that still logs or leaks; steps that are not atomic; code outside the repo that the app depends on; and docs that contradict the code. Every risk links to a decision in the log.
 
-11. SEQUENCE DIAGRAM (Mermaid)
-The most important write or transaction, from the user's tap to the stored result and the screen refresh. Name the real functions as participants and messages. Show validation, the offline or failure guard, the call to the server, rejection branches, the success branch, and the refresh. Use alt, opt and par blocks, numbered steps, and one note for connection loss.
+10. ROADMAP (kanban)
+Lanes: Backlog, Next, In progress, Done. Columns: Title, Description, Status, Priority, Tags (source of the item: the repo's own tracker, Proposed by you, or Released). Done lane comes from the release history. Mark anything you add yourself as Proposed.
+
+11. DECISION LOG (table)
+Columns: ID, Decision, Options considered, Recommendation, Priority (Low, Medium, High), Status (Open, Decided, Deferred), Decision owner. One row for each choice that needs a human, taken from the risks and open questions. Everything starts as Open.
 
 STEP 3: BOARD LAYOUT AND STYLE
 - Put everything you build inside one frame named "Repo Documentation". If the board already has a frame with that name, use it and place every item inside it. If not, create it first, large enough for all eleven artifacts, and enlarge it if anything would fall outside. Nothing may sit outside the frame except an existing template or instruction items you were not asked to touch.
 - Put a large title at the top, a subtitle with a one-line description, the version, the short commit and the repo address, then a contents line where every item is a clickable link to its section (use the board's "move to item" links). Number every section heading.
-- Order: 1 Architecture, 2 User flow, 3 intent.md, 4 spec.md, 5 plan.md, 6 Prototype, then 7 to 11 to the right of the documents, stacked top to bottom. Documents (intent, spec, plan) sit side by side, about 300 pixels apart.
+- Order, left to right in a single row inside the frame: 1 intent.md, 2 spec.md, 3 plan.md, 4 User flow, 5 Architecture, 6 Sequence, 7 Endpoint matrix, 8 Prototype, 9 Risk and security register, 10 Roadmap, 11 Decision log. The three documents sit about 300 pixels apart.
 - Leave generous space between sections. Diagram sizes are not reported by the board, so keep large gaps and never let two items overlap. After every create step, check the reported sizes and move things if needed.
 - Use Miro's default "Bright Paper" style: flat, calm, one font, short text, no emojis, no dashes used as punctuation in board text.
-- Build the board in stages (title and diagrams, then documents, then prototype, then tables, then sequence), reading back the results each time.
+- Build the board in stages (title, then the three documents, then the diagrams, then the endpoint matrix and prototype, then the risk register, roadmap and decision log), reading back the results each time.
 
 TECHNICAL NOTES FOR MIRO (you handle these, I do not need to)
 - Load Miro's canvas composer guidance and format guidance before creating anything.
